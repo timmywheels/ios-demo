@@ -223,6 +223,22 @@ class Ghost {
     
     var strength = 0
     
+    func kill() {
+        
+        isAlive = false
+        
+    }
+    
+    func isStrong() -> Bool {
+        
+        if strength > 10 {
+            return true
+        } else {
+            return false
+        }
+    }
+ 
+    
 }
 
 var ghost = Ghost()
@@ -232,3 +248,39 @@ print(ghost.isAlive)
 ghost.strength = 91
 
 print(ghost.strength)
+
+ghost.kill()
+
+print(ghost.isAlive)
+
+print(ghost.isStrong())
+
+
+print("\n\n\n======================\n\n\n")
+// Optionals
+
+var number: Int? // allows you to declare a variable without initializing it
+
+print(number)
+
+print("\n\n\n======================\n\n\n")
+
+var userEnteredText = "3"
+
+var userEnteredInteger = Int(userEnteredText)
+
+var dogAge = userEnteredInteger! * 7
+
+print(dogAge)
+
+// alternative to check for nil value
+
+if let dogAge = userEnteredInteger {
+    
+    print(dogAge * 7)
+    
+}
+
+
+
+
