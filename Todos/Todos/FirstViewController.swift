@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITextFieldDelegate {
 	
 	var todos = [String]()
 
@@ -36,9 +36,28 @@ class FirstViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		let todoInputBorderColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1.0) /* #dddddd */
+		addTodoInput.layer.borderColor = todoInputBorderColor.cgColor
+		
+		addTodoInput.layer.borderWidth = 1.0
+		
+		
 	}
 
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		
+		self.view.endEditing(true)
+		
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		
+		textField.resignFirstResponder()
+		
+		return true
+		
+	}
 
 }
 
