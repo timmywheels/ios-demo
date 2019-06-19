@@ -46,16 +46,27 @@ class SecondViewController: UIViewController, UITableViewDataSource,
 		
 		let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
 		
-			cell.textLabel?.text = todos[indexPath.row]
+		cell.textLabel?.text = todos[indexPath.row]
 		
-			print("todos[indexPath.row]", todos[indexPath.row])
+		cell.textLabel?.font = UIFont(name: "AvenirNext-Regular", size: 22.0)
+		
 		
 		return cell
 	}
 	
-
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
 	
-
-
+	func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		
+		if (editingStyle == UITableViewCell.EditingStyle.delete) {
+			table.beginUpdates()
+			todos.remove(at: indexPath.row)
+			table.deleteRows(at: [indexPath], with: UITableView.RowAnimation.top)
+			table.endUpdates()
+			
+		}
+	}
 }
 
