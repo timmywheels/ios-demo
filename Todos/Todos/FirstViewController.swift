@@ -31,9 +31,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
 		
 	}
 	
-	
-//	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
