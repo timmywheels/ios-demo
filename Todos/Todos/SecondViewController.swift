@@ -21,20 +21,9 @@ class SecondViewController: UIViewController, UITableViewDataSource,
 		let todosObject = UserDefaults.standard.object(forKey: "todos")
 		
 		todos = (todosObject as? Array<String>)!
-		
-		if todos.count > 0 {
-
-			print(todos)
-
-		}
-		
-		for todo in todos {
-			
-			print(todo)
-			
-		}
-		
-		
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
 		table.reloadData()
 	}
 	
